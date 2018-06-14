@@ -15,16 +15,9 @@
   <p *ngIf="show">Secret password = asdf</p>
 
   <div *ngFor="let registro of registros">
-    <p *ngIf="count >= 5;then estilo else sinEstilo"></p>
-    <ng-template #estilo>
-      <p [ngClass]="{'blanco':true}" [ngStyle]="{'background-color':'blue'}">
-        {{registro}}
-      </p>
-    </ng-template>
-    <ng-template #sinEstilo>
-      <p [ngClass]="" [ngStyle]="">
-        {{registro}}
-      </p>
-    </ng-template>
+    <p [ngClass]="{'blanco':getTextColor()}" [ngStyle]="{'background-color':getBgColor()}">
+      {{registro}}
+    </p>
   </div>
+
 </div>

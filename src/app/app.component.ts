@@ -8,22 +8,28 @@ import { DatePipe } from '@angular/common';
 })
 export class AppComponent {
 
-
   constructor(private datePipe: DatePipe) {
   }
-
   count = 0;
   show = false;
   registros: string[] = [];
   toggle() {
     this.show = !this.show;
-    this.log(this.show);
+    this.log();
   }
 
-  log(event: any) {
+  log() {
     this.count++;
-    this.registros.push('Se registra click: ' + event + ' Fecha: '
+    this.registros.push('Se registra click: ' + this.show + ' Fecha: '
       + this.datePipe.transform(Date.now().toString(), 'dd/MM/yyyy HH:mm') + '\n');
+  }
+
+  getTextColor() {
+    return this.count >= 5 ? true : '';
+  }
+
+  getBgColor() {
+    return this.count >= 5 ? 'blue' : '';
   }
 
 }
